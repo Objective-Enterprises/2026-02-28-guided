@@ -49,6 +49,14 @@ class Inventory <T> {
   getAll () {
     return this.items
   }
+
+  getProperty <T, K extends keyof T> (item: T, key: K): T[K] {
+    console.log(item)
+    console.log(key)
+    const value = item[key]
+    return value
+    // return 'hello'
+  }
 }
 
 // Example items
@@ -73,4 +81,17 @@ const powerfulName = comparePower(bootsOfWisdom, helmetOfSpeed)
 console.log('powerfulName', powerfulName)
 
 // Access property using keyof
+// function getProperty <T, K extends keyof T> (item: T, key: K) {
+//   const value = item[key]
+//   return value
+// }
 
+const helmetPower = magicalInventory.getProperty(helmetOfSpeed, 'powerLevel')
+const bootsName = magicalInventory.getProperty(bootsOfWisdom, 'name')
+
+const minivan = {
+  speed: 60,
+  passengers: ['Dorothy', 'Zelda']
+}
+const minivanPassengers = magicalInventory.getProperty(minivan, 'passengers')
+const minivanSpeed = magicalInventory.getProperty(minivan, 'speed')
