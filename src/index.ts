@@ -1,5 +1,10 @@
 // 1. Interface for Magical Item
-
+interface IMagicalItem {
+  name: string
+  type: string
+  powerLevel: number
+  isRare: boolean
+}
 
 // 2. Class implementing IMagicalItem
 
